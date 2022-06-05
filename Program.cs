@@ -10,6 +10,7 @@ namespace Lab2_Task1
             Paper p1 = new Paper(6);
             Scissors s1 = new Scissors(4);
 
+            //Print current strength
             Console.WriteLine("Current Strength ==> " + "Rock r1: " + r1.getStrength()
                                                        + "\t\tPaper p1: " + p1.getStrength()
                                                        + "\tScissors s1: " + s1.getStrength());
@@ -21,6 +22,8 @@ namespace Lab2_Task1
             // p1 strength double with r1
             // s1 strength double with p1
 
+
+            //Print boolean value True/False - who wins the fight
             Console.WriteLine("r1.fight(p1) wins: " + r1.fight(p1) + "\tr1.fight(s1) wins: " + r1.fight(s1));
             Console.WriteLine("p1.fight(r1) wins: " + p1.fight(r1) + "\t\tp1.fight(s1) wins: " + p1.fight(s1));
             Console.WriteLine("s1.fight(r1) wins: " + s1.fight(r1) + "\ts1.fight(p1) wins: " + s1.fight(p1));
@@ -52,6 +55,7 @@ namespace Lab2_Task1
             }
         }
 
+        //Inherited class Rock from Tool
         public class Rock : Tool
         {
             //Constructor to initialize stregth and
@@ -62,22 +66,30 @@ namespace Lab2_Task1
                 type = 'r';
             }
 
+            //Function fight to return boolean
+            //Original class wins then true else false
             public bool fight(Tool tool)
             {
+                //Get original class strength
                 int temp_strength = this.getStrength();
 
                 if (tool.getType() == 's')
                 {
+                    //Temporarily original class strength double
                     temp_strength *= 2;
                 }
                 else if (tool.getType() == 'p')
                 {
+                    //Temporarily original class strength half
                     temp_strength /= 2;
                 }
+
+                //Return boolean value true if condition true else false
                 return temp_strength >= tool.getStrength();
             }
         }
 
+        //Inherited class Paper from Tool
         public class Paper : Tool
         {
             //Constructor to initialize stregth and
@@ -89,20 +101,25 @@ namespace Lab2_Task1
             }
             public bool fight(Tool tool)
             {
+                //Get original class strength
                 int temp_strength = this.getStrength();
 
                 if (tool.getType() == 'r')
                 {
+                    //Temporarily original class strength double
                     temp_strength *= 2;
                 }
                 else if (tool.getType() == 's')
                 {
+                    //Temporarily original class strength half
                     temp_strength /= 2;
                 }
+                //Return boolean value true if condition true else false
                 return temp_strength >= tool.getStrength();
             }
         }
 
+        //Inherited class Scissors from Tool
         public class Scissors : Tool
         {
             //Constructor to initialize stregth and
@@ -115,16 +132,20 @@ namespace Lab2_Task1
 
             public bool fight(Tool tool)
             {
+                //Get original class strength
                 int temp_strength = this.getStrength();
 
                 if (tool.getType() == 'p')
                 {
+                    //Temporarily original class strength double
                     temp_strength *= 2;
                 }
                 else if (tool.getType() == 'r')
                 {
+                    //Temporarily original class strength half
                     temp_strength /= 2;
                 }
+                //Return boolean value true if condition true else false
                 return temp_strength >= tool.getStrength();
             }
         }
